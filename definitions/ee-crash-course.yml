@@ -1,5 +1,4 @@
 ---
-# MANUAL [2]
 ee_definitions:
   ee_crash_course:
     name: ee-crash-course
@@ -14,10 +13,6 @@ ee_definitions:
         collections:
           - name: ansible.controller
             version: "4.5.1"
-          - name: ansible.windows
-            version: "1.14.0"
-          - name: community.windows
-            version: "2.1.0"
           - name: community.vmware
             version: "4.2.0"
           - name: vmware.vmware_rest
