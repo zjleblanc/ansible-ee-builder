@@ -17,5 +17,3 @@ ee_definitions:
             version: "4.2.0"
           - name: vmware.vmware_rest
             version: "3.0.0"
-          - name: infoblox.nios_modules
-            version: "1.6.1"
