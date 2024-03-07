@@ -1,0 +1,7 @@
+# Dev Env
+.vscode/
+**/.DS_Store
+
+# Python
+.venv/
+**/__pycache__/**

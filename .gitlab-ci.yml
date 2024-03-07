@@ -1,0 +1,20 @@
+---
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+
+launch-ansible:
+  only:
+    changes:
+      - definitions/*
+  variables:
+    GIT_DEPTH: 2
+    AAP_HOST: $AAP_HOST
+    AAP_TOKEN: $AAP_TOKEN
+    AAP_JOB_TEMPLATE_ID: $AAP_JOB_TEMPLATE_ID
+  script:
+    - CHANGES=$(git --no-pager diff --name-only -r $CI_COMMIT_SHA^ $CI_COMMIT_SHA)
+    - ls -l definitions
+    - ALL=$(ls -l definitions)
+    - python -m pip install -r scripts/requirements.txt --user
+    - python scripts/trigger_ansible.py "$CHANGES" "$ALL"

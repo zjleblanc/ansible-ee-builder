@@ -1,0 +1,76 @@
+---
+- name: Build Execution Environment(s)
+  hosts: "{{ build_host | default(omit) }}"
+  gather_facts: false
+  become: false
+
+  vars:
+    ee_definitions: {}
+    ees_ignore: []
+    # ee_tag: use commit sha from pipeline
+    # ee_vebosity: expose in survey
+    # ee_builder_dir_clean: expose flag in survey
+
+    # Refer to custom filter in filter_plugins/common.py
+    ee_base_registry_username: "{{ ee_base_reg_user }}"
+    ee_base_registry_password: "{{ ee_base_reg_password }}"
+    # Refer to Private Automation Hub custom credential type
+    # https://docs.autodotes.com/Ansible/Credential%20Types/private_automation_hub/
+    ee_registry_dest: "{{ lookup('env', 'PAH_HOST') | default(omit) }}"
+    ee_registry_username: "{{ lookup('env', 'PAH_USERNAME') | default(omit) }}"
+    ee_registry_password: "{{ lookup('env', 'PAH_PASSWORD') | default(omit) }}"
+    ee_ah_host: "{{ lookup('env', 'PAH_HOST') | default(omit) }}"
+    ee_ah_token: "{{ lookup('env', 'PAH_TOKEN') | default(omit) }}"
+
+  tasks:
+    - name: Assert required params
+      ansible.builtin.assert:
+        that:
+          - build_host is defined
+          - ee_tag is defined
+          - ee_tag != 'OVERRIDE_ME'
+
+    - name: Load EE definitions
+      when: item | basename not in ees_ignore
+      loop: "{{ lookup('fileglob', 'definitions/*.yml', wantlist=true) }}"
+      ansible.builtin.include_vars:
+        file: "{{ item }}"
+        hash_behaviour: merge
+
+    - name: Determine EEs to build
+      ansible.builtin.set_fact:
+        ee_list: "{{ ee_definitions | tag_images(ee_tag) }}"
+
+    - name: Build and publish the EEs
+      vars:
+        ee_pull_collections_from_hub: true
+        ee_create_controller_def: false
+      ansible.builtin.include_role:
+        name: infra.ee_utilities.ee_builder
+
+    - name: Create temporary folder
+      register: controller_ee
+      delegate_to: localhost
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: temp
+
+    - name: Create Controller EE resource definitions
+      delegate_to: localhost
+      ansible.builtin.template:
+        src: ee_controller.yaml.j2
+        dest: "{{ controller_ee.path }}/ee_controller.yaml"
+        mode: '0644'
+
+    - name: Include templated variable
+      delegate_to: localhost
+      ansible.builtin.include_vars:
+        file: "{{ controller_ee.path }}/ee_controller.yaml"
+
+    - name: Update Controller Execution Environment configurations
+      vars:
+        controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
+        controller_oauthtoken: "{{ lookup('env', 'CONTROLLER_OAUTH_TOKEN') }}"
+      ansible.builtin.include_role:
+        name: infra.controller_configuration.execution_environments
+...

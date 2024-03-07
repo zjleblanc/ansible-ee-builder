@@ -1,0 +1,26 @@
+---
+# MANUAL [2]
+ee_definitions:
+  ee_crash_course:
+    name: ee-crash-course
+    description: Instructional execution environment definition file
+    pull: missing
+    ee_reg_credential: Automation Hub Container Registry
+    options:
+      package_manager_path: /usr/bin/microdnf
+    base_image: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
+    dependencies:
+      galaxy:
+        collections:
+          - name: ansible.controller
+            version: "4.5.1"
+          - name: ansible.windows
+            version: "1.14.0"
+          - name: community.windows
+            version: "2.1.0"
+          - name: community.vmware
+            version: "4.2.0"
+          - name: vmware.vmware_rest
+            version: "3.0.0"
+          - name: infoblox.nios_modules
+            version: "1.6.1"
