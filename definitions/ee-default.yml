@@ -34,14 +34,10 @@ ee_definitions:
             version: "2.0.0"
           - name: ansible.utils
             version: "3.1.0"
-          - name: theforeman.foreman
-            version: "3.14.0"
-          - name: azure.azcollection
-            version: "1.15.0"
           - name: ansible.windows
             version: "1.9.0"
-          - name: ansible.utils
-            version: "2.9.0"
+          - name: azure.azcollection
+            version: "1.15.0"
           - name: chocolatey.chocolatey
             version: "1.4.0"
           - name: community.windows
@@ -66,3 +62,5 @@ ee_definitions:
             version: "1.2.2"
           - name: servicenow.itsm
             version: "2.4.0"
+          - name: theforeman.foreman
+            version: "3.14.0"
