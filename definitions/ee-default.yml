@@ -10,7 +10,7 @@ ee_definitions:
       package_manager_path: /usr/bin/microdnf
     base_image: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
     build_steps:
-      prepend_galaxy: 
+      prepend_builder: 
         - RUN microdnf install -y --enablerepo=rhocp-4.10-for-rhel-8-x86_64-rpms --releasever=8.6 openshift-clients
     dependencies:
       system:
