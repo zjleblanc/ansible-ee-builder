@@ -46,8 +46,8 @@ ee_definitions:
             version: "8.1.0"
           - name: containers.podman
             version: "1.11.0"
-          - name: infra.aap_utilities
-            version: "2.3.0"
+          # - name: infra.aap_utilities
+          #   version: "2.3.0"
           - name: infra.ah_configuration
             version: "2.0.4"
           - name: infra.controller_configuration
@@ -58,8 +58,8 @@ ee_definitions:
             version: "2.3.0"
           # - name: redhat.openshift
           #   version: "3.0.1"
-          # - name: redhat.openshift_virtualization
-          #   version: "1.2.2"
+          - name: redhat.openshift_virtualization
+            version: "1.2.2"
           - name: servicenow.itsm
             version: "2.4.0"
           - name: theforeman.foreman
