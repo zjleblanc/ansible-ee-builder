@@ -9,9 +9,6 @@ ee_definitions:
     options:
       package_manager_path: /usr/bin/microdnf
     base_image: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
-    build_steps:
-      prepend_builder: 
-        - RUN microdnf install -y --enablerepo=rhocp-4.10-for-rhel-8-x86_64-rpms --releasever=8.6 openshift-clients
     dependencies:
       system:
         - curl
@@ -25,16 +22,6 @@ ee_definitions:
         - packaging
         - botocore
         - boto3
-        # For OpenShift Clients [https://access.redhat.com/solutions/6985157]
-        - kubernetes>=12.0.0
-        - requests-oauthlib
-        - jsonpatch
-        - pynetbox==5.3.1
-        - ansible-modules-hashivault==4.6.3
-        - deepdiff==5.7.0
-        - pandas==1.4.1
-        - ovf==0.4.3
-        - cryptography==36.0.2
       galaxy:
         collections:
           - name: awx.awx
@@ -69,8 +56,8 @@ ee_definitions:
             version: "3.1.3"
           - name: infra.osbuild
             version: "2.3.0"
-          - name: redhat.openshift
-            version: "3.0.1"
+          # - name: redhat.openshift
+          #   version: "3.0.1"
           - name: redhat.openshift_virtualization
             version: "1.2.2"
           - name: servicenow.itsm
