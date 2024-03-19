@@ -68,9 +68,6 @@
         file: "{{ controller_ee.path }}/ee_controller.yaml"
 
     - name: Update Controller Execution Environment configurations
-      vars:
-        controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
-        controller_oauthtoken: "{{ lookup('env', 'CONTROLLER_OAUTH_TOKEN') }}"
       ansible.builtin.include_role:
         name: infra.controller_configuration.execution_environments
 ...

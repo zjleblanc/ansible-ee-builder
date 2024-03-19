@@ -40,10 +40,12 @@ ee_definitions:
             version: "1.15.0"
           - name: chocolatey.chocolatey
             version: "1.4.0"
-          - name: community.windows
-            version: "1.9.0"
           - name: community.general
             version: "8.1.0"
+          - name: community.vmware
+            version: "4.2.0"
+          - name: community.windows
+            version: "1.9.0"
           - name: containers.podman
             version: "1.11.0"
           # - name: infra.aap_utilities
@@ -64,3 +66,5 @@ ee_definitions:
             version: "2.4.0"
           - name: theforeman.foreman
             version: "3.14.0"
+          - name: vmware.vmware_rest
+            version: "3.0.0"

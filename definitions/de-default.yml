@@ -1,0 +1,29 @@
+---
+# MANUAL [3]
+ee_definitions:
+  de_default:
+    name: de-default
+    description: My default decision environment with all the EDA things
+    pull: missing
+    ee_reg_credential: Automation Hub Container Registry
+    options:
+      package_manager_path: /usr/bin/microdnf
+    base_image: registry.redhat.io/ansible-automation-platform-24/de-minimal-rhel8:latest
+    dependencies:
+      python:
+        - aiohttp
+        - aiokafka
+        - requests
+      system:
+        - pkgconf-pkg-config [platform:rpm]
+        - systemd-devel [platform:rpm]
+        - gcc [platform:rpm]
+        - python39-devel [platform:rpm]
+      galaxy:
+        collections:
+          - name: ansible.eda
+          - name: cloin.eda
+          - name: cloin.datadog
+          - name: ansible.utils
+          - name: dynatrace.event_driven_ansible
+          - name: cloin.prometheus
