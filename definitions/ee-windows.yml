@@ -32,6 +32,8 @@ ee_definitions:
             version: 6.6.0
           - name: chocolatey.chocolatey
             version: 1.4.0
+          - name: microsoft.ad
+            version: 1.5.0
           - name: servicenow.itsm
             version: 2.1.0
       python:

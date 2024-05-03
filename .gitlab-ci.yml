@@ -14,6 +14,8 @@ launch-ansible:
     AAP_JOB_TEMPLATE_ID: $AAP_JOB_TEMPLATE_ID
   script:
     - CHANGES=$(git --no-pager diff --name-only -r $CI_COMMIT_SHA^ $CI_COMMIT_SHA)
+    - sed -i 's/CONTROLLER_HOST/$AAP_HOST/g' files/ee-default/controller_cli.cfg
+    - sed -i 's/CONTROLLER_TOKEN/$AAP_TOKEN/g' files/ee-default/controller_cli.cfg
     - ls -l definitions
     - ALL=$(ls -l definitions)
     - python -m pip install -r scripts/requirements.txt --user
