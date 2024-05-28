@@ -79,8 +79,8 @@ ee_definitions:
           - name: vmware.vmware_rest
             version: "3.0.0"
           - name: zjleblanc.reporting
-            version: "1.1.5"
+            version: "1.2.3"
           - name: zjleblanc.tmdb
             version: "1.1.0"
           - name: zjleblanc.utils
-            version: "1.0.1"
+            version: "1.2.4"
