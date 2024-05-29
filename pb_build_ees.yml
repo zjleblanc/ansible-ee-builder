@@ -45,6 +45,7 @@
       vars:
         ee_pull_collections_from_hub: true
         ee_create_controller_def: false
+        ee_prune_images: false
       ansible.builtin.include_role:
         name: infra.ee_utilities.ee_builder
 
