@@ -38,6 +38,8 @@ ee_definitions:
             version: "8.0.0"
           - name: ansible.controller
             version: "4.5.0"
+          - name: ansible.posix
+            version: "1.5.4"
           - name: ansible.scm
             version: "2.0.0"
           - name: ansible.utils
@@ -52,6 +54,8 @@ ee_definitions:
             version: "1.4.0"
           - name: community.general
             version: "8.1.0"
+          - name: community.mysql
+            version: "3.9.0"
           - name: community.vmware
             version: "4.2.0"
           - name: community.windows
@@ -70,12 +74,16 @@ ee_definitions:
             version: "2.3.0"
           - name: microsoft.ad
             version: "1.5.0"
+          - name: redhat.insights
+            version: "1.2.2"
           # - name: redhat.openshift
           #   version: "3.0.1"
           # - name: redhat.openshift_virtualization
           #   version: "1.2.2"
           - name: servicenow.itsm
             version: "2.4.0"
+          - name: servicenow.servicenow
+            version: ""
           - name: theforeman.foreman
             version: "3.14.0"
           - name: vmware.vmware_rest
