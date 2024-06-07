@@ -82,8 +82,6 @@ ee_definitions:
           #   version: "1.2.2"
           - name: servicenow.itsm
             version: "2.4.0"
-          - name: servicenow.servicenow
-            version: ""
           - name: theforeman.foreman
             version: "3.14.0"
           - name: vmware.vmware_rest
