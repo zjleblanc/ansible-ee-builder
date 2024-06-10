@@ -73,6 +73,9 @@
         - name: Update Controller Execution Environment configurations
           ansible.builtin.include_role:
             name: infra.controller_configuration.execution_environments
+          vars:
+            controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
+            controller_oauthtoken: "{{ lookup('env', 'CONTROLLER_OAUTH_TOKEN') }}"
 
       rescue:
         - name: Notify CaC failure
