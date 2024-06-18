@@ -26,6 +26,7 @@ ee_definitions:
         - passlib
         - lxml
         - xmltodict
+        - jc
         - jmespath
         - packaging
         - botocore
