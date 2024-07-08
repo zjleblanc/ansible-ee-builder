@@ -22,21 +22,27 @@ ee_definitions:
     dependencies:
       galaxy:
         collections:
+          - name: amazon.aws
+            version: 8.1.0
           - name: ansible.windows
-            version: 2.3.0
+            version: 2.4.0
           - name: ansible.utils
-            version: 4.1.0
+            version: 5.0.0
+          - name: community.aws
+            version: 8.0.0
           - name: community.windows
             version: 2.2.0
           - name: community.general
-            version: 6.6.0
+            version: 9.1.0
           - name: chocolatey.chocolatey
             version: 1.5.1
           - name: microsoft.ad
             version: 1.5.0
           - name: servicenow.itsm
-            version: 2.5.0
+            version: 2.6.1
       python:
+        - jc
+        - jmespath
         - paramiko
         - pyOpenSSL
         - pypsrp[kerberos,credssp]
@@ -45,7 +51,7 @@ ee_definitions:
         - pyyaml
         - proxmoxer
       system:
+        - crypto-policies-scripts [platform:rpm]
         - krb5-libs [platform:rpm]
         - krb5-workstation [platform:rpm]
-        - crypto-policies-scripts [platform:rpm]
         - git-core [platform:rpm]
