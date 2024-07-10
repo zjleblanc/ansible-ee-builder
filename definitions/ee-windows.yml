@@ -2,7 +2,7 @@
 ee_definitions:
   ee_windows:
     name: ee-windows
-    description: My windows execution environment with krb5 conf for ansible.local
+    description: My windows execution environment with krb5 conf for autodotes.com
     pull: missing
     ee_reg_credential: Automation Hub Container Registry
     options:
