@@ -63,6 +63,8 @@ ee_definitions:
             version: "1.9.0"
           - name: containers.podman
             version: "1.11.0"
+          - name: cyberark.pas
+            version: "1.0.27"
           # - name: infra.aap_utilities
           #   version: "2.3.0"
           - name: infra.ah_configuration
