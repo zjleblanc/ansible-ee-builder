@@ -33,7 +33,7 @@ ee_definitions:
           - name: community.windows
             version: 2.2.0
           - name: community.general
-            version: 9.1.0
+            version: 9.3.0
           - name: chocolatey.chocolatey
             version: 1.5.1
           - name: microsoft.ad
