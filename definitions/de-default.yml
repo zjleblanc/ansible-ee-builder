@@ -10,9 +10,9 @@ ee_definitions:
       package_manager_path: /usr/bin/microdnf
     base_image: registry.redhat.io/ansible-automation-platform-24/de-minimal-rhel8:latest
     build_items:
-      - files/de-default/
+      - files/default/
     build_files:
-      - src: files/de-default
+      - src: files/default
         dest: configs
     build_steps:
       prepend_final: 
