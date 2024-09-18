@@ -43,3 +43,5 @@ ee_definitions:
             version: 2.1.16
           - name: cloin.prometheus
             version: 0.1.0
+          - name: zjleblanc.utils
+            version: 1.3.6
