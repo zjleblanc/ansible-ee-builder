@@ -29,9 +29,17 @@ ee_definitions:
         - python39-devel [platform:rpm]
       galaxy:
         collections:
+          # Certified
           - name: ansible.eda
-          - name: cloin.eda
-          - name: cloin.datadog
+            version: 1.4.7
           - name: ansible.utils
+            version: 5.1.1
           - name: dynatrace.event_driven_ansible
+            version: 1.2.2
+          # Community
+          - name: cloin.datadog
+            version: 1.0.5
+          - name: cloin.eda
+            version: 2.1.16
           - name: cloin.prometheus
+            version: 0.1.0
