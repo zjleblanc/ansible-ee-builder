@@ -67,7 +67,7 @@ ee_definitions:
           - name: community.vmware
             version: "4.2.0"
           - name: community.windows
-            version: "1.9.0"
+            version: "2.3.0"
           - name: containers.podman
             version: "1.11.0"
           - name: cyberark.conjur
