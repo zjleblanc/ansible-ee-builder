@@ -22,16 +22,17 @@ ee_definitions:
         - curl
         - git
       python:
-        - requests
-        - passlib
-        - lxml
-        - xmltodict
+        - boto3
+        - botocore
         - jc
         - jmespath
+        - lxml
         - packaging
-        - botocore
-        - boto3
+        - passlib
+        - proxmoxer
         - python-kasa
+        - requests
+        - xmltodict
       galaxy:
         collections:
           - name: awx.awx
@@ -59,7 +60,7 @@ ee_definitions:
           - name: community.crypto
             version: "2.21.1"
           - name: community.general
-            version: "8.1.0"
+            version: "9.5.1"
           - name: community.hashi_vault
             version: "6.2.0"
           - name: community.mysql

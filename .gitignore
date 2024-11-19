@@ -1,5 +1,6 @@
 # Dev Env
 .vscode/
+.cache/
 **/.DS_Store
 
 # Python
