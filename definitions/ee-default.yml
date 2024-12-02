@@ -41,10 +41,18 @@ ee_definitions:
             version: "9.0.0"
           - name: ansible.controller
             version: "4.6.2"
+          - name: ansible.eda
+            version: "2.2.0"
+          - name: ansible.hub
+            version: "1.0.0"
           - name: ansible.netcommon
             version: "7.1.0"
+          - name: ansible.platform
+            version: "2.5.3"
           - name: ansible.posix
-            version: "1.5.4"
+            version: "1.6.2"
+          - name: ansible.receptor
+            version: "2.0.3"
           - name: ansible.scm
             version: "3.0.0"
           - name: ansible.utils
