@@ -25,7 +25,7 @@ def launch_ansible(config, ignore_ees) -> None:
     "Authorization": "Bearer " + config['aap_token'],
     **API_HEADERS
   }
-  url = f"https://{config['aap_host']}/api/v2/job_templates/{config['aap_jt_id']}/launch/"
+  url = f"https://{config['aap_host']}/api/controller/v2/job_templates/{config['aap_jt_id']}/launch/"
   r = requests.post(url=url, json=body, headers=headers, verify=False)
   job_id = r.json().get('job', 'oops')
   print("Launched Ansible Job to build EEs: [version]=" + config['commit'])
