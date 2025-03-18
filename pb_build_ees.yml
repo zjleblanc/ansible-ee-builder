@@ -16,9 +16,9 @@
     ee_base_registry_password: "{{ ee_base_reg_password }}"
     # Refer to Private Automation Hub custom credential type
     # https://docs.autodotes.com/Ansible/Credential%20Types/private_automation_hub/
-    ee_registry_dest: "{{ lookup('env', 'PAH_HOST') | default(omit) }}"
-    ee_registry_username: "{{ lookup('env', 'PAH_USERNAME') | default(omit) }}"
-    ee_registry_password: "{{ lookup('env', 'PAH_PASSWORD') | default(omit) }}"
+    ee_registry_dest: "{{ ee_dest_reg | default(lookup('env', 'PAH_HOST')) | default(omit) }}"
+    ee_registry_username: "{{ ee_dest_reg_user | default(lookup('env', 'PAH_USERNAME')) | default(omit) }}"
+    ee_registry_password: "{{ ee_dest_reg_password | default(lookup('env', 'PAH_PASSWORD')) | default(omit) }}"
     ee_ah_host: "{{ lookup('env', 'PAH_HOST') | default(omit) }}"
     ee_ah_token: "{{ lookup('env', 'PAH_TOKEN') | default(omit) }}"
 
