@@ -29,7 +29,7 @@ def launch_ansible(config, ignore_ees) -> None:
   r = requests.post(url=url, json=body, headers=headers, verify=False)
   job_id = r.json().get('job', 'oops')
   print("Launched Ansible Job to build EEs: [version]=" + config['commit'])
-  print("View job -> https://" + config['aap_host'] + '#/jobs/playbook/' + str(job_id))
+  print("View job -> https://" + config['aap_host'] + '/execution/jobs/playbook/' + str(job_id))
 
 def run(config):
   changed_ees, ignore_ees = process_changes()
