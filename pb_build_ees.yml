@@ -41,47 +41,47 @@
       ansible.builtin.set_fact:
         ee_list: "{{ ee_definitions | tag_images(ee_tag) }}"
 
-    - name: Build and publish the EEs
-      vars:
-        ee_pull_collections_from_hub: true
-        ee_create_controller_def: false
-        ee_prune_images: false
-      ansible.builtin.include_role:
-        name: infra.ee_utilities.ee_builder
+    # - name: Build and publish the EEs
+    #   vars:
+    #     ee_pull_collections_from_hub: true
+    #     ee_create_controller_def: false
+    #     ee_prune_images: false
+    #   ansible.builtin.include_role:
+    #     name: infra.ee_utilities.ee_builder
 
-    - name: Controller CaC block
-      block:
-        - name: Create temporary folder
-          register: controller_ee
-          delegate_to: localhost
-          ansible.builtin.tempfile:
-            state: directory
-            suffix: temp
+    # - name: Controller CaC block
+    #   block:
+    #     - name: Create temporary folder
+    #       register: controller_ee
+    #       delegate_to: localhost
+    #       ansible.builtin.tempfile:
+    #         state: directory
+    #         suffix: temp
 
-        - name: Create Controller EE resource definitions
-          delegate_to: localhost
-          ansible.builtin.template:
-            src: ee_controller.yaml.j2
-            dest: "{{ controller_ee.path }}/ee_controller.yaml"
-            mode: '0644'
+    #     - name: Create Controller EE resource definitions
+    #       delegate_to: localhost
+    #       ansible.builtin.template:
+    #         src: ee_controller.yaml.j2
+    #         dest: "{{ controller_ee.path }}/ee_controller.yaml"
+    #         mode: '0644'
 
-        - name: Include templated variable
-          delegate_to: localhost
-          ansible.builtin.include_vars:
-            file: "{{ controller_ee.path }}/ee_controller.yaml"
+    #     - name: Include templated variable
+    #       delegate_to: localhost
+    #       ansible.builtin.include_vars:
+    #         file: "{{ controller_ee.path }}/ee_controller.yaml"
 
-        - name: Update Controller Execution Environment configurations
-          ansible.builtin.include_role:
-            name: infra.controller_configuration.execution_environments
-          vars:
-            controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
-            controller_oauthtoken: "{{ lookup('env', 'CONTROLLER_OAUTH_TOKEN') }}"
+    #     - name: Update Controller Execution Environment configurations
+    #       ansible.builtin.include_role:
+    #         name: infra.controller_configuration.execution_environments
+    #       vars:
+    #         controller_hostname: "{{ lookup('env', 'CONTROLLER_HOST') }}"
+    #         controller_oauthtoken: "{{ lookup('env', 'CONTROLLER_OAUTH_TOKEN') }}"
 
-      rescue:
-        - name: Notify CaC failure
-          ansible.builtin.debug:
-            msg: |
-              Configuration as code steps failed.
-              You will have to manually update the associated
-              Execution Environment resource in Controller.
+    #   rescue:
+    #     - name: Notify CaC failure
+    #       ansible.builtin.debug:
+    #         msg: |
+    #           Configuration as code steps failed.
+    #           You will have to manually update the associated
+    #           Execution Environment resource in Controller.
 ...
