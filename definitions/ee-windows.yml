@@ -39,7 +39,7 @@ ee_definitions:
           - name: microsoft.ad
             version: 1.8.1
           - name: servicenow.itsm
-            version: 2.6.1
+            version: 2.8.0
       python:
         - jc
         - jmespath
