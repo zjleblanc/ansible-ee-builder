@@ -58,8 +58,6 @@ ee_definitions:
             version: "2.6.0"
           - name: ansible.hub
             version: "1.0.0"
-          - name: ansible.netcommon
-            version: "7.1.0"
           - name: ansible.platform
             version: "2.5.3"
           - name: ansible.posix
