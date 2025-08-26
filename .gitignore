@@ -1,4 +1,5 @@
 # Dev Env
+.ansible/
 .vscode/
 .cache/
 **/.DS_Store
