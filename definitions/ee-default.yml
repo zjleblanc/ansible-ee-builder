@@ -8,7 +8,7 @@ ee_definitions:
     ee_reg_credential: Automation Hub Container Registry
     options:
       package_manager_path: /usr/bin/microdnf
-    base_image: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9:latest
+    base_image: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel8:latest
     build_items:
       - files/ee-default/
     build_files:
