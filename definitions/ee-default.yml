@@ -29,11 +29,19 @@ ee_definitions:
 
         # 3. Create a secondary symlink for the pip command itself
         - RUN ln -sf /usr/bin/pip3.11 /usr/bin/pip3
+
+        # Pre-installing these can often bypass the "Missing Ansible" check 
+        # if the builder's auto-installer struggles
+        - RUN python3 -m pip install ansible-core==2.18.15 ansible-runner
       prepend_final:
         - COPY _build/configs/controller_cli.cfg /etc/controller/controller_cli.cfg
       append_final:
         - RUN rm -f /etc/ansible/ansible.cfg && microdnf clean all
     dependencies:
+      ansible_core:
+        package_pip: ansible-core==2.18.15  # Or the version you prefer
+      ansible_runner:
+        package_pip: ansible-runner
       system:
         - gcc [platform:rpm]
         - git [platform:rpm]
