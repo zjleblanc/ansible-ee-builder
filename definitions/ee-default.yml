@@ -106,6 +106,8 @@ ee_definitions:
             version: "1.2.2"
           - name: cyberark.pas
             version: "1.0.27"
+          - name: hashicorp.terraform
+            version: "1.2.0"
           # - name: infra.aap_utilities
           #   version: "2.3.0"
           - name: infra.ah_configuration
