@@ -32,6 +32,8 @@ ee_definitions:
         - libxslt-devel [platform:rpm]
         - openssl-devel [platform:rpm]
         - pkgconf-pkg-config [platform:rpm]
+        - python3.11-pip [platform:rpm]       # CRITICAL for RHEL 9
+        - python3.11-devel [platform:rpm]     # Needed to compile ansible-pylibssh
         - systemd-devel [platform:rpm]
         - which [platform:rpm]
       python:
