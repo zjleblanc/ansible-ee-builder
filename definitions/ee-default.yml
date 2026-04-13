@@ -19,11 +19,17 @@ ee_definitions:
         dest: configs
     build_steps:
       prepend_base:
-        - RUN microdnf install -y python3.11 python3.11-pip python3.11-devel gcc
+        # 1. Install both the generic python3-pip and the specific 3.11 version
+        - RUN microdnf install -y python3-pip python3.11-pip python3.11-devel gcc
+        
+        # 2. Force the 'python3' command to be 3.11 and ensure its pip is seeded
         - RUN ln -sf /usr/bin/python3.11 /usr/bin/python3
-        - RUN python3.11 -m pip install --upgrade pip
+        - RUN python3.11 -m ensurepip --upgrade
+        - RUN python3.11 -m pip install --upgrade pip setuptools wheel
+
+        # 3. Create a secondary symlink for the pip command itself
+        - RUN ln -sf /usr/bin/pip3.11 /usr/bin/pip3
       prepend_final:
-        - ENV PKGMGR_OPTS "--nodocs --setopt install_weak_deps=0 --enablerepo=rhocp-4.13-for-rhel-8-x86_64-rpms"
         - COPY _build/configs/controller_cli.cfg /etc/controller/controller_cli.cfg
       append_final:
         - RUN rm -f /etc/ansible/ansible.cfg && microdnf clean all
