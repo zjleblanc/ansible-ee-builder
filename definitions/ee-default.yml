@@ -21,7 +21,7 @@ ee_definitions:
       prepend_base:
         # 1. Install both the generic python3-pip and the specific 3.11 version
         - RUN microdnf install -y python3-pip python3.11-pip python3.11-devel gcc
-        
+
         # 2. Force the 'python3' command to be 3.11 and ensure its pip is seeded
         - RUN ln -sf /usr/bin/python3.11 /usr/bin/python3
         - RUN python3.11 -m ensurepip --upgrade
@@ -30,7 +30,7 @@ ee_definitions:
         # 3. Create a secondary symlink for the pip command itself
         - RUN ln -sf /usr/bin/pip3.11 /usr/bin/pip3
 
-        # Pre-installing these can often bypass the "Missing Ansible" check 
+        # Pre-installing these can often bypass the "Missing Ansible" check
         # if the builder's auto-installer struggles
         - RUN python3 -m pip install ansible-core==2.18.15 ansible-runner
       prepend_final:
@@ -58,6 +58,10 @@ ee_definitions:
         - ansible-pylibssh>=0.2.0
         - boto3
         - botocore
+        - google-api-python-client==2.196.0
+        - google-auth==2.53.0
+        - google-auth-httplib2==0.4.0
+        - google-auth-oauthlib==1.4.0
         - jc
         - jmespath
         - lxml
