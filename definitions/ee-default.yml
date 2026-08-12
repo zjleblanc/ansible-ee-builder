@@ -56,11 +56,12 @@ ee_definitions:
         - which [platform:rpm]
       python:
         - ansible-pylibssh>=0.2.0
+        - beautifulsoup4==4.15.0
         - boto3
         - botocore
-        - google-api-python-client==2.196.0
-        - google-auth==2.53.0
-        - google-auth-httplib2==0.4.0
+        - google-api-python-client==2.198.0
+        - google-auth==2.56.3
+        - google-auth-httplib2==0.4.1
         - google-auth-oauthlib==1.4.0
         - jc
         - jmespath
